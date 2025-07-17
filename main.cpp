@@ -1,3 +1,9 @@
+#include <imgui.h>
+
+#include "panels/home_window.h"
+#include "panels/settings_window.h"
+#include "panels/about_window.h"
+#include "panels/demo_button_window.h"
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
@@ -35,6 +41,10 @@ int main(int, char **) {
   ImGui_ImplGlfw_InitForOpenGL(window, true);
   ImGui_ImplOpenGL3_Init("#version 330");
 
+  // 页面枚举
+  enum class Page { Home, Settings, About, DemoButton };
+  Page currentPage = Page::Home;
+
   // 主循环
   while (!glfwWindowShouldClose(window)) {
     glfwPollEvents();
@@ -43,10 +53,38 @@ int main(int, char **) {
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
 
-    // 示例窗口
-    ImGui::Begin("Hello, ImGui!");
-    ImGui::Text("This is a simple ImGui window.");
-    ImGui::End();
+    // 顶部导航栏
+    if (ImGui::BeginMainMenuBar()) {
+      if (ImGui::BeginMenu("Pages")) {
+        if (ImGui::MenuItem("Home", NULL, currentPage == Page::Home))
+          currentPage = Page::Home;
+        if (ImGui::MenuItem("Settings", NULL, currentPage == Page::Settings))
+          currentPage = Page::Settings;
+        if (ImGui::MenuItem("About", NULL, currentPage == Page::About))
+          currentPage = Page::About;
+        if (ImGui::MenuItem("DemoButton", NULL,
+                            currentPage == Page::DemoButton))
+          currentPage = Page::DemoButton;
+        ImGui::EndMenu();
+      }
+      ImGui::EndMainMenuBar();
+    }
+
+    // 页面内容分离
+    switch (currentPage) {
+    case Page::Home:
+      ShowHomeWindow();
+      break;
+    case Page::Settings:
+      ShowSettingsWindow();
+      break;
+    case Page::About:
+      ShowAboutWindow();
+      break;
+    case Page::DemoButton:
+      ShowDemoButtonWindow();
+      break;
+    }
 
     ImGui::Render();
     int display_w, display_h;
