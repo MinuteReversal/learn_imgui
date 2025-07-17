@@ -1,8 +1,0 @@
-[
-{
-  "directory": "/Users/zhuang/Documents/github/learn_imgui/build",
-  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -isystem /Users/zhuang/Documents/github/vcpkg/installed/x64-osx/include -iframework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk/System/Library/Frameworks -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -o CMakeFiles/LearnImGui.dir/main.cpp.o -c /Users/zhuang/Documents/github/learn_imgui/main.cpp",
-  "file": "/Users/zhuang/Documents/github/learn_imgui/main.cpp",
-  "output": "CMakeFiles/LearnImGui.dir/main.cpp.o"
-}
-]

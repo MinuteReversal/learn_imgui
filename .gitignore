@@ -1,0 +1,31 @@
+# Build folders
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# VSCode settings
+.vscode/
+
+# macOS system files
+.DS_Store
+
+# Compiled binaries
+*.exe
+*.out
+*.app
+*.dSYM/
+
+# vcpkg installed packages (if local)
+vcpkg_installed/
+
+# Logs
+*.log
+
+# User-specific
+*.swp
+*~
+
+# Ignore compile_commands.json if generated
+compile_commands.json
