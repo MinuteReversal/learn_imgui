@@ -1,0 +1,11 @@
+{
+  "cmake.configureSettings": {
+    "CMAKE_TOOLCHAIN_FILE": "/Users/zhuang/Documents/github/vcpkg/scripts/buildsystems/vcpkg.cmake"
+  },
+  "clangd.arguments": [
+    "--compile-commands-dir=${workspaceFolder}/build"
+  ],
+  "cSpell.words": [
+    "glfw"
+  ]
+}
