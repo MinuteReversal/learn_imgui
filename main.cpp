@@ -1,9 +1,10 @@
 #include <imgui.h>
-
 #include "panels/home_window.h"
 #include "panels/settings_window.h"
 #include "panels/about_window.h"
 #include "panels/demo_button_window.h"
+#include "panels/custom_panel_test_window.h"
+#include "panels/demo_cpr_window.h"
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
@@ -42,7 +43,7 @@ int main(int, char **) {
   ImGui_ImplOpenGL3_Init("#version 330");
 
   // 页面枚举
-  enum class Page { Home, Settings, About, DemoButton };
+  enum class Page { Home, Settings, About, DemoButton, CustomPanelTest, DemoCpr };
   Page currentPage = Page::Home;
 
   // 主循环
@@ -65,6 +66,12 @@ int main(int, char **) {
         if (ImGui::MenuItem("DemoButton", NULL,
                             currentPage == Page::DemoButton))
           currentPage = Page::DemoButton;
+        if (ImGui::MenuItem("CustomPanelTest", NULL,
+                            currentPage == Page::CustomPanelTest))
+          currentPage = Page::CustomPanelTest;
+        if (ImGui::MenuItem("DemoCpr", NULL,
+                            currentPage == Page::DemoCpr))
+          currentPage = Page::DemoCpr;
         ImGui::EndMenu();
       }
       ImGui::EndMainMenuBar();
@@ -83,6 +90,12 @@ int main(int, char **) {
       break;
     case Page::DemoButton:
       ShowDemoButtonWindow();
+      break;
+    case Page::CustomPanelTest:
+      ShowCustomPanelTestWindow();
+      break;
+    case Page::DemoCpr:
+      ShowDemoCprWindow();
       break;
     }
 
